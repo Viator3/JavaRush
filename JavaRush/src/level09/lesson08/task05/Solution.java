@@ -1,0 +1,49 @@
+package level09.lesson08.task05;
+
+/* Intercept unchecked exceptions
+In the processExceptions method, process any unchecked exceptions.
+It is necessary to display the stack-trace of each exception that arises using the printStack method.
+You can only use one try block ..
+*/
+
+public class Solution {
+	public static void main(String[] args) {
+        processExceptions(new Solution());
+    }
+
+    public static void processExceptions(Solution obj) {
+        try {
+            obj.method1();
+            obj.method2();
+            obj.method3();
+        }
+        catch (NumberFormatException e) {
+            printStack(e);
+        }
+        catch (IndexOutOfBoundsException e) {
+            printStack(e);
+        }
+        catch (NullPointerException e) {
+            printStack(e);
+        }
+    }
+
+    public static void printStack(Throwable throwable) {
+        System.out.println(throwable);
+        for (StackTraceElement element : throwable.getStackTrace()) {
+            System.out.println(element);
+        }
+    }
+
+    public void method1() {
+        throw new NullPointerException();
+    }
+
+    public void method2() {
+        throw new IndexOutOfBoundsException();
+    }
+
+    public void method3() {
+        throw new NumberFormatException();
+    }
+}
