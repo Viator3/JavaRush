@@ -8,10 +8,10 @@ The program replaces in the text the first letters of all words for capital lett
 Output the result on the screen.
 
 Example input:
-mama soap ramu.
+   mama soap ramu.
 
 Example output:
-Mama Soap Ramu.
+   Mama Soap Ramu.
 */
 public class Solution {
 	public static void main(String[] args) throws IOException
